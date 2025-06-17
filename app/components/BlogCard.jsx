@@ -7,7 +7,8 @@ const BlogCard = ({
   image, 
   date, 
   readTime, 
-  slug 
+  slug,
+  priority = false
 }) => {
   return (
     <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 group">
@@ -16,7 +17,11 @@ const BlogCard = ({
           src={image}
           alt={title}
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          priority={priority}
           className="object-cover group-hover:scale-105 transition-transform duration-300"
+          loading={priority ? 'eager' : 'lazy'}
+          quality={85}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-base-100/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </figure>

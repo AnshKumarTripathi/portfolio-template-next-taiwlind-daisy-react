@@ -1,17 +1,42 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
+import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Your Portfolio",
-  description: "Personal portfolio website showcasing projects and skills",
+  title: "Your Portfolio | Full Stack Developer",
+  description:
+    "Professional portfolio showcasing web development projects, certifications, and technical blog posts.",
+  keywords: ["web development", "full stack", "portfolio", "projects", "blog"],
+  openGraph: {
+    title: "Your Portfolio | Full Stack Developer",
+    description:
+      "Professional portfolio showcasing web development projects, certifications, and technical blog posts.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Your Portfolio | Full Stack Developer",
+    description:
+      "Professional portfolio showcasing web development projects, certifications, and technical blog posts.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className={inter.className}>
         {/* Grid Background - Full Page */}
         <div className="fixed inset-0 pointer-events-none">
@@ -31,6 +56,7 @@ export default function RootLayout({ children }) {
 
         <Navbar />
         <main className="min-h-screen pt-16 relative">{children}</main>
+        <Footer />
       </body>
     </html>
   );
