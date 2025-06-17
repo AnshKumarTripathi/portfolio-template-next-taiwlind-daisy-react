@@ -116,73 +116,75 @@ export default function BlogsPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8">All Blogs</h1>
+      <div className="bg-base-100/95 backdrop-blur-[2px] rounded-xl p-8 shadow-xl">
+        <h1 className="text-4xl font-bold mb-8 text-primary">All Blogs</h1>
 
-      <div className="flex flex-col md:flex-row gap-8">
-        {/* Sidebar Filters */}
-        <div className="w-full md:w-64 space-y-6">
-          <div>
-            <h3 className="font-semibold mb-3">Categories</h3>
-            <div className="space-y-2">
-              {categories.map((category) => (
-                <label key={category} className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    checked={selectedCategories.includes(category)}
-                    onChange={() => toggleCategory(category)}
-                    className="checkbox checkbox-primary"
-                  />
-                  <span>{category}</span>
-                </label>
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* Sidebar Filters */}
+          <div className="w-full md:w-64 space-y-6">
+            <div className="bg-base-200/95 backdrop-blur-[2px] p-4 rounded-lg">
+              <h3 className="font-semibold mb-3 text-primary">Categories</h3>
+              <div className="space-y-2">
+                {categories.map((category) => (
+                  <label key={category} className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedCategories.includes(category)}
+                      onChange={() => toggleCategory(category)}
+                      className="checkbox checkbox-primary"
+                    />
+                    <span>{category}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-base-200/95 backdrop-blur-[2px] p-4 rounded-lg">
+              <h3 className="font-semibold mb-3 text-primary">Tags</h3>
+              <div className="space-y-2">
+                {tags.map((tag) => (
+                  <label key={tag} className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedTags.includes(tag)}
+                      onChange={() => toggleTag(tag)}
+                      className="checkbox checkbox-primary"
+                    />
+                    <span>{tag}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Main Content */}
+          <div className="flex-1">
+            {/* Search Bar */}
+            <div className="mb-6">
+              <input
+                type="text"
+                placeholder="Search blogs..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="input input-bordered w-full bg-base-100/95 backdrop-blur-[2px]"
+              />
+            </div>
+
+            {/* Blogs Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {filteredBlogs.map((blog, index) => (
+                <BlogCard key={index} {...blog} />
               ))}
             </div>
-          </div>
 
-          <div>
-            <h3 className="font-semibold mb-3">Tags</h3>
-            <div className="space-y-2">
-              {tags.map((tag) => (
-                <label key={tag} className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    checked={selectedTags.includes(tag)}
-                    onChange={() => toggleTag(tag)}
-                    className="checkbox checkbox-primary"
-                  />
-                  <span>{tag}</span>
-                </label>
-              ))}
-            </div>
+            {filteredBlogs.length === 0 && (
+              <div className="text-center py-8 bg-base-200/95 backdrop-blur-[2px] rounded-lg">
+                <p className="text-lg text-base-content/80">
+                  No blogs found matching your criteria.
+                </p>
+              </div>
+            )}
           </div>
-        </div>
-
-        {/* Main Content */}
-        <div className="flex-1">
-          {/* Search Bar */}
-          <div className="mb-6">
-            <input
-              type="text"
-              placeholder="Search blogs..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="input input-bordered w-full"
-            />
-          </div>
-
-          {/* Blogs Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {filteredBlogs.map((blog, index) => (
-              <BlogCard key={index} {...blog} />
-            ))}
-          </div>
-
-          {filteredBlogs.length === 0 && (
-            <div className="text-center py-8">
-              <p className="text-lg text-gray-500">
-                No blogs found matching your criteria.
-              </p>
-            </div>
-          )}
         </div>
       </div>
     </div>

@@ -136,9 +136,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 space-y-6">
+          <div className="w-full md:w-1/2 section-content max-w-2xl pr-0 md:pr-12 text-justify">
             <h2 className="text-4xl font-bold text-primary mb-4">About Me</h2>
-            <p className="text-lg text-base-content/80 leading-relaxed">
+            <p className="text-lg text-base-content/80 leading-relaxed mb-6">
               I'm a passionate full-stack developer with 5+ years of experience
               in building modern web applications. My journey in tech started
               with a curiosity about how things work on the internet, which led
@@ -292,6 +292,11 @@ export default function Home() {
               <ProjectCard key={index} {...project} />
             ))}
           </div>
+          <div className="flex justify-center mt-8">
+            <a href="/projects" className="btn btn-outline btn-primary">
+              View All Projects
+            </a>
+          </div>
         </div>
       </section>
 
@@ -370,6 +375,11 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <div className="flex justify-center mt-8">
+            <a href="/certifications" className="btn btn-outline btn-primary">
+              View All Certifications
+            </a>
+          </div>
         </div>
       </section>
 
@@ -385,25 +395,32 @@ export default function Home() {
               <BlogCard key={index} {...blog} />
             ))}
           </div>
+          <div className="flex justify-center mt-8">
+            <a href="/blogs" className="btn btn-outline btn-primary">
+              View All Blogs
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="py-8 border-t relative">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-50/5 to-red-50/5 -z-10"></div>
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Contact Section */}
-            <div className="text-center md:text-left">
+        <div className="container mx-auto px-4 flex flex-col items-center gap-8">
+          {/* First row: Contact section centered */}
+          <div className="w-full flex justify-center mb-8">
+            <div className="max-w-xl w-full text-center">
               <h3 className="text-xl font-bold mb-4 text-gradient">
                 Get in Touch
               </h3>
-              <p className="mb-4">
-                Let's connect and discuss how we can work together to bring your
-                ideas to life! I'm always excited to hear about new projects and
-                opportunities.
-              </p>
-              <div className="flex justify-center md:justify-start gap-4">
+              <blockquote className="italic text-lg text-base-content/80 border-l-4 border-primary pl-4 mb-6">
+                "Technology is best when it brings people together."
+                <br />
+                <span className="block mt-2 text-sm text-base-content/60">
+                  – Matt Mullenweg
+                </span>
+              </blockquote>
+              <div className="flex justify-center gap-4 mb-4">
                 <a
                   href="mailto:your.email@example.com"
                   className="modern-button"
@@ -424,49 +441,52 @@ export default function Home() {
                 </a>
               </div>
             </div>
+          </div>
 
+          {/* Second row: Automation and Startups side by side */}
+          <div className="w-full flex flex-col md:flex-row justify-center gap-8">
             {/* Automation Tools Section */}
-            <div>
-              <h3 className="text-xl font-bold mb-4 text-center md:text-left text-gradient">
+            <div className="flex-1 min-w-[250px] max-w-md flex flex-col items-center md:items-start">
+              <h3 className="text-xl font-bold mb-4 text-center md:text-left text-gradient w-full">
                 Recent Automation Tools
               </h3>
-              <ul className="space-y-2">
-                <li className="text-center md:text-left">
+              <ul className="space-y-2 mb-4 w-full">
+                <li className="text-center md:text-left w-full">
                   <a
                     href="/automation-tools/social-media-scheduler"
-                    className="footer-link"
+                    className="footer-link md:block md:w-full"
                   >
                     Social Media Scheduler
                   </a>
                 </li>
-                <li className="text-center md:text-left">
+                <li className="text-center md:text-left w-full">
                   <a
                     href="/automation-tools/data-backup-tool"
-                    className="footer-link"
+                    className="footer-link md:block md:w-full"
                   >
                     Data Backup Tool
                   </a>
                 </li>
-                <li className="text-center md:text-left">
+                <li className="text-center md:text-left w-full">
                   <a
                     href="/automation-tools/content-generator"
-                    className="footer-link"
+                    className="footer-link md:block md:w-full"
                   >
                     AI Content Generator
                   </a>
                 </li>
-                <li className="text-center md:text-left">
+                <li className="text-center md:text-left w-full">
                   <a
                     href="/automation-tools/email-marketing"
-                    className="footer-link"
+                    className="footer-link md:block md:w-full"
                   >
                     Email Marketing Automation
                   </a>
                 </li>
-                <li className="text-center md:text-left">
+                <li className="text-center md:text-left w-full">
                   <a
                     href="/automation-tools/seo-analyzer"
-                    className="footer-link"
+                    className="footer-link md:block md:w-full"
                   >
                     SEO Analyzer
                   </a>
@@ -475,33 +495,48 @@ export default function Home() {
             </div>
 
             {/* Startups Section */}
-            <div>
-              <h3 className="text-xl font-bold mb-4 text-center md:text-left text-gradient">
+            <div className="flex-1 min-w-[250px] max-w-md flex flex-col items-center md:items-start">
+              <h3 className="text-xl font-bold mb-4 text-center md:text-left text-gradient w-full">
                 Popular Startups
               </h3>
-              <ul className="space-y-2">
-                <li className="text-center md:text-left">
-                  <a href="/startups/eco-tech" className="footer-link">
+              <ul className="space-y-2 mb-4 w-full">
+                <li className="text-center md:text-left w-full">
+                  <a
+                    href="/startups/eco-tech"
+                    className="footer-link md:block md:w-full"
+                  >
                     EcoTech Solutions
                   </a>
                 </li>
-                <li className="text-center md:text-left">
-                  <a href="/startups/health-tech" className="footer-link">
+                <li className="text-center md:text-left w-full">
+                  <a
+                    href="/startups/health-tech"
+                    className="footer-link md:block md:w-full"
+                  >
                     HealthTech Innovations
                   </a>
                 </li>
-                <li className="text-center md:text-left">
-                  <a href="/startups/fintech" className="footer-link">
+                <li className="text-center md:text-left w-full">
+                  <a
+                    href="/startups/fintech"
+                    className="footer-link md:block md:w-full"
+                  >
                     FinTech Revolution
                   </a>
                 </li>
-                <li className="text-center md:text-left">
-                  <a href="/startups/edtech" className="footer-link">
+                <li className="text-center md:text-left w-full">
+                  <a
+                    href="/startups/edtech"
+                    className="footer-link md:block md:w-full"
+                  >
                     EduTech Platform
                   </a>
                 </li>
-                <li className="text-center md:text-left">
-                  <a href="/startups/ai-startup" className="footer-link">
+                <li className="text-center md:text-left w-full">
+                  <a
+                    href="/startups/ai-startup"
+                    className="footer-link md:block md:w-full"
+                  >
                     AI Startup Hub
                   </a>
                 </li>

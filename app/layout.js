@@ -13,8 +13,24 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
       <body className={inter.className}>
+        {/* Grid Background - Full Page */}
+        <div className="fixed inset-0 pointer-events-none">
+          <div className="absolute inset-0 grid grid-cols-24 grid-rows-24">
+            {Array.from({ length: 24 }).map((_, row) =>
+              Array.from({ length: 24 }).map((_, col) => (
+                <div key={`${row}-${col}`} className="relative group">
+                  {/* Vertical Line */}
+                  <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-base-content/10 group-hover:bg-primary group-hover:shadow-[0_0_10px_rgba(var(--primary),0.5)] dark:group-hover:bg-secondary dark:group-hover:shadow-[0_0_10px_rgba(var(--secondary),0.5)] transition-all duration-300" />
+                  {/* Horizontal Line */}
+                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-base-content/10 group-hover:bg-primary group-hover:shadow-[0_0_10px_rgba(var(--primary),0.5)] dark:group-hover:bg-secondary dark:group-hover:shadow-[0_0_10px_rgba(var(--secondary),0.5)] transition-all duration-300" />
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+
         <Navbar />
-        <main className="min-h-screen pt-16">{children}</main>
+        <main className="min-h-screen pt-16 relative">{children}</main>
       </body>
     </html>
   );

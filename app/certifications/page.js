@@ -111,78 +111,82 @@ export default function CertificationsPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8">All Certifications</h1>
+      <div className="bg-base-100/95 backdrop-blur-[2px] rounded-xl p-8 shadow-xl">
+        <h1 className="text-4xl font-bold mb-8 text-primary">
+          All Certifications
+        </h1>
 
-      <div className="flex flex-col md:flex-row gap-8">
-        {/* Sidebar Filters */}
-        <div className="w-full md:w-64 space-y-6">
-          <div>
-            <h3 className="font-semibold mb-3">Issuers</h3>
-            <div className="space-y-2">
-              {issuers.map((issuer) => (
-                <label key={issuer} className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    checked={selectedIssuers.includes(issuer)}
-                    onChange={() => toggleIssuer(issuer)}
-                    className="checkbox checkbox-primary"
-                  />
-                  <span>{issuer}</span>
-                </label>
-              ))}
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* Sidebar Filters */}
+          <div className="w-full md:w-64 space-y-6">
+            <div className="bg-base-200/95 backdrop-blur-[2px] p-4 rounded-lg">
+              <h3 className="font-semibold mb-3 text-primary">Issuers</h3>
+              <div className="space-y-2">
+                {issuers.map((issuer) => (
+                  <label key={issuer} className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedIssuers.includes(issuer)}
+                      onChange={() => toggleIssuer(issuer)}
+                      className="checkbox checkbox-primary"
+                    />
+                    <span>{issuer}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-base-200/95 backdrop-blur-[2px] p-4 rounded-lg">
+              <h3 className="font-semibold mb-3 text-primary">Tech Stack</h3>
+              <div className="space-y-2">
+                {techStacks.map((tech) => (
+                  <label key={tech} className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedTechStacks.includes(tech)}
+                      onChange={() => toggleTechStack(tech)}
+                      className="checkbox checkbox-primary"
+                    />
+                    <span>{tech}</span>
+                  </label>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div>
-            <h3 className="font-semibold mb-3">Tech Stack</h3>
-            <div className="space-y-2">
-              {techStacks.map((tech) => (
-                <label key={tech} className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    checked={selectedTechStacks.includes(tech)}
-                    onChange={() => toggleTechStack(tech)}
-                    className="checkbox checkbox-primary"
-                  />
-                  <span>{tech}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Main Content */}
-        <div className="flex-1">
-          {/* Search Bar */}
-          <div className="mb-6">
-            <input
-              type="text"
-              placeholder="Search certifications..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="input input-bordered w-full"
-            />
-          </div>
-
-          {/* Certifications Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredCertifications.map((cert, index) => (
-              <ProjectCard
-                key={index}
-                {...cert}
-                demoLink={cert.verifyLink}
-                demoLinkText="Verify Certificate"
+          {/* Main Content */}
+          <div className="flex-1">
+            {/* Search Bar */}
+            <div className="mb-6">
+              <input
+                type="text"
+                placeholder="Search certifications..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="input input-bordered w-full bg-base-100/95 backdrop-blur-[2px]"
               />
-            ))}
-          </div>
-
-          {filteredCertifications.length === 0 && (
-            <div className="text-center py-8">
-              <p className="text-lg text-gray-500">
-                No certifications found matching your criteria.
-              </p>
             </div>
-          )}
+
+            {/* Certifications Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredCertifications.map((cert, index) => (
+                <ProjectCard
+                  key={index}
+                  {...cert}
+                  demoLink={cert.verifyLink}
+                  demoLinkText="Verify Certificate"
+                />
+              ))}
+            </div>
+
+            {filteredCertifications.length === 0 && (
+              <div className="text-center py-8 bg-base-200/95 backdrop-blur-[2px] rounded-lg">
+                <p className="text-lg text-base-content/80">
+                  No certifications found matching your criteria.
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
