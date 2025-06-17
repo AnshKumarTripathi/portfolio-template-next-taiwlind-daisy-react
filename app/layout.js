@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import TorchEffect from "./components/TorchEffect";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,6 +39,8 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={inter.className}>
+        {/* Torch Effect - Mouse spotlight */}
+        <TorchEffect radius={50} />
         {/* Grid Background - Full Page */}
         <div className="fixed inset-0 pointer-events-none">
           <div className="absolute inset-0 grid grid-cols-24 grid-rows-24">
