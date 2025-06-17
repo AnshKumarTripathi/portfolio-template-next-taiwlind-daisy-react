@@ -100,11 +100,27 @@ export default function Home() {
   ];
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-4 relative">
+      {/* Grid Background - Full Page */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute inset-0 grid grid-cols-24 grid-rows-24">
+          {Array.from({ length: 24 }).map((_, row) =>
+            Array.from({ length: 24 }).map((_, col) => (
+              <div key={`${row}-${col}`} className="relative group">
+                {/* Vertical Line */}
+                <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-base-content/10 group-hover:bg-primary group-hover:shadow-[0_0_10px_rgba(var(--primary),0.5)] dark:group-hover:bg-secondary dark:group-hover:shadow-[0_0_10px_rgba(var(--secondary),0.5)] transition-all duration-300" />
+                {/* Horizontal Line */}
+                <div className="absolute top-0 left-0 right-0 h-[1px] bg-base-content/10 group-hover:bg-primary group-hover:shadow-[0_0_10px_rgba(var(--primary),0.5)] dark:group-hover:bg-secondary dark:group-hover:shadow-[0_0_10px_rgba(var(--secondary),0.5)] transition-all duration-300" />
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+
       {/* About Section */}
       <section
         id="about"
-        className="min-h-screen flex flex-col justify-center py-20 relative bg-base-100"
+        className="min-h-screen flex flex-col justify-center py-20 relative bg-base-100/95 backdrop-blur-[2px]"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 -z-10"></div>
         <div className="flex flex-col md:flex-row items-center gap-12">
@@ -155,25 +171,117 @@ export default function Home() {
       </section>
 
       {/* Video Section */}
-      <section className="min-h-screen flex flex-col justify-center py-20 bg-base-200">
-        <div className="max-w-4xl mx-auto w-full">
-          <h2 className="text-4xl font-bold mb-8 text-center text-primary">
-            Maker Portfolio
-          </h2>
-          <div className="aspect-video w-full rounded-xl overflow-hidden shadow-xl">
-            <iframe
-              className="w-full h-full rounded-lg shadow-lg"
-              src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-              title="Maker Portfolio"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+      <section className="min-h-screen flex flex-col justify-center py-20 relative bg-base-200/95 backdrop-blur-[2px]">
+        <div className="max-w-5xl mx-auto w-full px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary mb-4">
+              Maker Portfolio
+            </h2>
+            <p className="text-lg text-base-content/80 max-w-2xl mx-auto">
+              Watch how I bring ideas to life through code, design, and
+              innovation. Each project is a story of problem-solving and
+              creative thinking.
+            </p>
+          </div>
+
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+            <div className="relative aspect-video w-full rounded-xl overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-t from-base-100/20 to-transparent z-10"></div>
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                title="Maker Portfolio"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="card bg-base-100/95 backdrop-blur-[2px] shadow-xl hover:shadow-2xl transition-all duration-300 group">
+              <div className="card-body">
+                <h3 className="card-title text-primary group-hover:text-primary-focus transition-colors duration-300">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                  Quick Projects
+                </h3>
+                <p className="text-base-content/80">
+                  Watch how I build and deploy projects in record time while
+                  maintaining quality.
+                </p>
+              </div>
+            </div>
+
+            <div className="card bg-base-100/95 backdrop-blur-[2px] shadow-xl hover:shadow-2xl transition-all duration-300 group">
+              <div className="card-body">
+                <h3 className="card-title text-primary group-hover:text-primary-focus transition-colors duration-300">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                    />
+                  </svg>
+                  Problem Solving
+                </h3>
+                <p className="text-base-content/80">
+                  See my approach to tackling complex technical challenges and
+                  finding elegant solutions.
+                </p>
+              </div>
+            </div>
+
+            <div className="card bg-base-100/95 backdrop-blur-[2px] shadow-xl hover:shadow-2xl transition-all duration-300 group">
+              <div className="card-body">
+                <h3 className="card-title text-primary group-hover:text-primary-focus transition-colors duration-300">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                    />
+                  </svg>
+                  Best Practices
+                </h3>
+                <p className="text-base-content/80">
+                  Learn about the coding standards and development practices I
+                  follow in every project.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section className="min-h-screen flex flex-col justify-center py-20 relative bg-base-100">
+      <section className="min-h-screen flex flex-col justify-center py-20 relative bg-base-100/95 backdrop-blur-[2px]">
         <div className="absolute inset-0 bg-gradient-to-bl from-primary/5 to-secondary/5 -z-10"></div>
         <div className="max-w-7xl mx-auto w-full px-4">
           <h2 className="text-4xl font-bold mb-12 text-center text-primary">
@@ -188,7 +296,7 @@ export default function Home() {
       </section>
 
       {/* Certifications Section */}
-      <section className="min-h-screen flex flex-col justify-center py-20 relative bg-base-200">
+      <section className="min-h-screen flex flex-col justify-center py-20 relative bg-base-200/95 backdrop-blur-[2px]">
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-secondary/5 -z-10"></div>
         <div className="max-w-7xl mx-auto w-full px-4">
           <h2 className="text-4xl font-bold mb-12 text-center text-primary">
@@ -266,7 +374,7 @@ export default function Home() {
       </section>
 
       {/* Blogs Section */}
-      <section className="min-h-screen flex flex-col justify-center py-20 relative bg-base-100">
+      <section className="min-h-screen flex flex-col justify-center py-20 relative bg-base-100/95 backdrop-blur-[2px]">
         <div className="absolute inset-0 bg-gradient-to-bl from-primary/5 to-secondary/5 -z-10"></div>
         <div className="max-w-7xl mx-auto w-full px-4">
           <h2 className="text-4xl font-bold mb-12 text-center text-primary">
