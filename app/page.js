@@ -120,12 +120,12 @@ export default function Home() {
       {/* About Section */}
       <section
         id="about"
-        className="min-h-screen flex flex-col justify-center py-20 relative bg-base-100/95 backdrop-blur-[2px]"
+        className="min-h-screen flex flex-col justify-center py-10 md:py-20 relative bg-base-100/95 backdrop-blur-[2px]"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 -z-10"></div>
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="w-full md:w-1/2">
-            <div className="relative w-64 h-64 mx-auto rounded-full overflow-hidden shadow-2xl hover:shadow-primary/20 transition-all duration-300">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-6xl mx-auto px-4 w-full">
+          <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
+            <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl hover:shadow-primary/20 transition-all duration-300">
               <Image
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
                 alt="Your Name"
@@ -137,8 +137,10 @@ export default function Home() {
           </div>
 
           <div className="w-full md:w-1/2 section-content max-w-2xl pr-0 md:pr-12 text-justify">
-            <h2 className="text-4xl font-bold text-primary mb-4">About Me</h2>
-            <p className="text-lg text-base-content/80 leading-relaxed mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              About Me
+            </h2>
+            <p className="text-base md:text-lg text-base-content/80 leading-relaxed mb-6">
               I'm a passionate full-stack developer with 5+ years of experience
               in building modern web applications. My journey in tech started
               with a curiosity about how things work on the internet, which led
@@ -147,7 +149,7 @@ export default function Home() {
               and adapt to new challenges.
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {["HTML", "CSS", "JavaScript", "React", "Node.js", "AWS"].map(
                 (skill) => (
                   <div
@@ -171,20 +173,20 @@ export default function Home() {
       </section>
 
       {/* Video Section */}
-      <section className="min-h-screen flex flex-col justify-center py-20 relative bg-base-200/95 backdrop-blur-[2px]">
+      <section className="min-h-screen flex flex-col justify-center py-10 md:py-20 relative bg-base-200/95 backdrop-blur-[2px]">
         <div className="max-w-5xl mx-auto w-full px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Maker Portfolio
             </h2>
-            <p className="text-lg text-base-content/80 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-base-content/80 max-w-2xl mx-auto">
               Watch how I bring ideas to life through code, design, and
               innovation. Each project is a story of problem-solving and
               creative thinking.
             </p>
           </div>
 
-          <div className="relative group">
+          <div className="relative group mb-8 md:mb-12">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
             <div className="relative aspect-video w-full rounded-xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-t from-base-100/20 to-transparent z-10"></div>
@@ -198,7 +200,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mt-8 md:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <div className="card bg-base-100/95 backdrop-blur-[2px] shadow-xl hover:shadow-2xl transition-all duration-300 group">
               <div className="card-body">
                 <h3 className="card-title text-primary group-hover:text-primary-focus transition-colors duration-300">
@@ -281,13 +283,13 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="min-h-screen flex flex-col justify-center py-20 relative bg-base-100/95 backdrop-blur-[2px]">
+      <section className="min-h-screen flex flex-col justify-center py-10 md:py-20 relative bg-base-100/95 backdrop-blur-[2px]">
         <div className="absolute inset-0 bg-gradient-to-bl from-primary/5 to-secondary/5 -z-10"></div>
         <div className="max-w-7xl mx-auto w-full px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center text-primary">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center text-primary">
             Featured Projects
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {featuredProjects.map((project, index) => (
               <ProjectCard key={index} {...project} />
             ))}
@@ -301,19 +303,19 @@ export default function Home() {
       </section>
 
       {/* Certifications Section */}
-      <section className="min-h-screen flex flex-col justify-center py-20 relative bg-base-200/95 backdrop-blur-[2px]">
+      <section className="min-h-screen flex flex-col justify-center py-10 md:py-20 relative bg-base-200/95 backdrop-blur-[2px]">
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-secondary/5 -z-10"></div>
         <div className="max-w-7xl mx-auto w-full px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center text-primary">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center text-primary">
             Certifications
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {certifications.map((cert, index) => (
               <div
                 key={index}
                 className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 group border border-base-300"
               >
-                <figure className="relative h-48 overflow-hidden">
+                <figure className="relative h-40 md:h-48 overflow-hidden">
                   <Image
                     src={cert.image}
                     alt={cert.title}
@@ -324,15 +326,15 @@ export default function Home() {
                 </figure>
 
                 <div className="card-body">
-                  <div className="flex justify-between items-start">
-                    <h3 className="card-title text-xl font-bold text-primary group-hover:text-primary-focus transition-colors duration-300">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                    <h3 className="card-title text-lg md:text-xl font-bold text-primary group-hover:text-primary-focus transition-colors duration-300">
                       {cert.title}
                     </h3>
                     <span className="text-sm text-base-content/60">
                       {cert.date}
                     </span>
                   </div>
-                  <p className="mt-2 text-base-content/80 leading-relaxed">
+                  <p className="mt-2 text-base-content/80 leading-relaxed text-justify">
                     {cert.description}
                   </p>
 
@@ -384,13 +386,13 @@ export default function Home() {
       </section>
 
       {/* Blogs Section */}
-      <section className="min-h-screen flex flex-col justify-center py-20 relative bg-base-100/95 backdrop-blur-[2px]">
+      <section className="min-h-screen flex flex-col justify-center py-10 md:py-20 relative bg-base-100/95 backdrop-blur-[2px]">
         <div className="absolute inset-0 bg-gradient-to-bl from-primary/5 to-secondary/5 -z-10"></div>
         <div className="max-w-7xl mx-auto w-full px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center text-primary">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center text-primary">
             Latest Blog Posts
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {featuredBlogs.map((blog, index) => (
               <BlogCard key={index} {...blog} />
             ))}
@@ -408,19 +410,19 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-50/5 to-red-50/5 -z-10"></div>
         <div className="container mx-auto px-4 flex flex-col items-center gap-8">
           {/* First row: Contact section centered */}
-          <div className="w-full flex justify-center mb-8">
+          <div className="w-full flex justify-center mb-8 px-2">
             <div className="max-w-xl w-full text-center">
               <h3 className="text-xl font-bold mb-4 text-gradient">
                 Get in Touch
               </h3>
-              <blockquote className="italic text-lg text-base-content/80 border-l-4 border-primary pl-4 mb-6">
+              <blockquote className="italic text-base md:text-lg text-base-content/80 border-l-4 border-primary pl-4 mb-6">
                 "Technology is best when it brings people together."
                 <br />
                 <span className="block mt-2 text-sm text-base-content/60">
                   – Matt Mullenweg
                 </span>
               </blockquote>
-              <div className="flex justify-center gap-4 mb-4">
+              <div className="flex flex-wrap justify-center gap-4 mb-4">
                 <a
                   href="mailto:your.email@example.com"
                   className="modern-button"
@@ -444,9 +446,9 @@ export default function Home() {
           </div>
 
           {/* Second row: Automation and Startups side by side */}
-          <div className="w-full flex flex-col md:flex-row justify-center gap-8">
+          <div className="w-full flex flex-col md:flex-row justify-center gap-8 px-2">
             {/* Automation Tools Section */}
-            <div className="flex-1 min-w-[250px] max-w-md flex flex-col items-center md:items-start">
+            <div className="flex-1 min-w-[220px] max-w-md flex flex-col items-center md:items-start">
               <h3 className="text-xl font-bold mb-4 text-center md:text-left text-gradient w-full">
                 Recent Automation Tools
               </h3>
@@ -495,7 +497,7 @@ export default function Home() {
             </div>
 
             {/* Startups Section */}
-            <div className="flex-1 min-w-[250px] max-w-md flex flex-col items-center md:items-start">
+            <div className="flex-1 min-w-[220px] max-w-md flex flex-col items-center md:items-start">
               <h3 className="text-xl font-bold mb-4 text-center md:text-left text-gradient w-full">
                 Popular Startups
               </h3>

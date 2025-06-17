@@ -110,17 +110,19 @@ export default function CertificationsPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="bg-base-100/95 backdrop-blur-[2px] rounded-xl p-8 shadow-xl">
-        <h1 className="text-4xl font-bold mb-8 text-primary">
+    <div className="container mx-auto px-2 sm:px-4 py-8">
+      <div className="bg-base-100/95 backdrop-blur-[2px] rounded-xl p-4 sm:p-8 shadow-xl max-w-7xl mx-auto">
+        <h1 className="text-2xl md:text-4xl font-bold mb-6 md:mb-8 text-primary text-center md:text-left">
           All Certifications
         </h1>
 
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8">
           {/* Sidebar Filters */}
-          <div className="w-full md:w-64 space-y-6">
+          <div className="w-full md:w-64 space-y-6 mb-6 md:mb-0">
             <div className="bg-base-200/95 backdrop-blur-[2px] p-4 rounded-lg">
-              <h3 className="font-semibold mb-3 text-primary">Issuers</h3>
+              <h3 className="font-semibold mb-3 text-primary text-center md:text-left">
+                Issuers
+              </h3>
               <div className="space-y-2">
                 {issuers.map((issuer) => (
                   <label key={issuer} className="flex items-center gap-2">
@@ -137,7 +139,9 @@ export default function CertificationsPage() {
             </div>
 
             <div className="bg-base-200/95 backdrop-blur-[2px] p-4 rounded-lg">
-              <h3 className="font-semibold mb-3 text-primary">Tech Stack</h3>
+              <h3 className="font-semibold mb-3 text-primary text-center md:text-left">
+                Tech Stack
+              </h3>
               <div className="space-y-2">
                 {techStacks.map((tech) => (
                   <label key={tech} className="flex items-center gap-2">
@@ -168,7 +172,7 @@ export default function CertificationsPage() {
             </div>
 
             {/* Certifications Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredCertifications.map((cert, index) => (
                 <ProjectCard
                   key={index}
@@ -180,7 +184,7 @@ export default function CertificationsPage() {
             </div>
 
             {filteredCertifications.length === 0 && (
-              <div className="text-center py-8 bg-base-200/95 backdrop-blur-[2px] rounded-lg">
+              <div className="text-center py-8 bg-base-200/95 backdrop-blur-[2px] rounded-lg mt-4">
                 <p className="text-lg text-base-content/80">
                   No certifications found matching your criteria.
                 </p>
